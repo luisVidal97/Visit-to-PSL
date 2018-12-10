@@ -4,10 +4,20 @@ public class HelloWorldDto {
 
     private String greting;
     private Long id;
+    private double trm;
 
-    public HelloWorldDto(String greting,Long id) {
+    public double getTrm() {
+        return trm;
+    }
+
+    public void setTrm(double trm) {
+        this.trm = trm;
+    }
+
+    public HelloWorldDto(String greting, Long id, double trm) {
         this.greting = greting;
         this.id = id;
+        this.trm=trm;
     }
 
     public String getGreting() {

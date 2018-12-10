@@ -1,6 +1,7 @@
 package com.example.demo.hello.world;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,9 +12,12 @@ public class HelloWorldController {
     @Value("${HELLO:Hola}")
     private String greeting;
 
-    @GetMapping("/hello/{name}")
-    public HelloWorldDto helloWorld(@PathVariable("name")String name){
+    @Autowired
+    private HelloWorldService service;
 
-        return new HelloWorldDto(name,  9L);
+    @GetMapping("/hello/{name}")
+    public HelloWorldDto helloWorld(@PathVariable("name") String name) {
+
+        return service.getDtoWithTRM(greeting + "" + name);
     }
 }
