@@ -12,8 +12,8 @@ public class HelloWorldController {
     private String greeting;
 
     @GetMapping("/hello/{name}")
-    public String helloWorld(@PathVariable("name")String name){
+    public HelloWorldDto helloWorld(@PathVariable("name")String name){
 
-        return greeting+ " "+name;
+        return new HelloWorldDto(name,  9L);
     }
 }
